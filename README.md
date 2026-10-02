@@ -2,17 +2,37 @@
 
 Lazer ve plazma kesimde parçaları sac plakaya dizen bir Windows programı. İnternet istemez, kurduğunuz bilgisayarda kendi başına çalışır.
 
-Kesim atölyelerinin günlük işi için, genel kullanıma göre yazdık. Parçaları atıyorsunuz, plakayı seçiyorsunuz, dizilimi ekranda görüyorsunuz, istediğiniz yeri elle düzeltip çıktıyı kesim programınıza veriyorsunuz.
+Asıl işi dizmek: parçaları plakaya en az sac harcayacak şekilde yerleştirir. Kesim atölyelerinin günlük işi için, genel kullanıma göre yazdık. Parçaları atıyorsunuz, plakayı seçiyorsunuz, dizilimi ekranda görüyorsunuz, istediğiniz yeri elle düzeltip çıktıyı kesim programınıza veriyorsunuz.
 
-![Nestra ana ekran: 3000 x 1500 plakaya dizilmiş 560 parça](ekran/01-ana-ekran.png)
+![Nestra ana ekran: 3000 x 1500 plakaya dizilmiş 398 parça](ekran/01-ana-ekran.png)
 
-*3000 x 1500 plaka, beş türden 560 parça, motor 40 saniye çalıştı. Hepsi tek plakaya sığdı.*
+*Örnek bir iş: 3000 x 1500 plaka, dokuz türden 398 parça. Motor 40 saniye çalıştı, hepsi tek plakaya sığdı, plaka verimi %80,6. Küçük parçalar büyüklerin arasındaki boşluklara ve deliklerine yerleşti.*
+
+## Dizilim motoru
+
+Programın en çok emek verdiğimiz kısmı yerleşim motoru. Atölyedeki gerçek işlerle, binlerce parçalı plakalara kadar denedik ve ayarladık.
+
+**Parçalar plakaya eklenir, belirli aralıklarla sıkıştırılır.** Motor plakaya uygun parçaları yerleştirir, sonra aralıklarla bütün dizilimi sıkıştırıp parçaları birbirine yaklaştırır. Kullanılan sac kısalır, kalan sac büyür.
+
+**En verimli hali binlerce deneme ile aranır.** Motor bilgisayarın çekirdeklerine dağılıp çok sayıda farklı dizilimi birlikte dener. Ekranda hep şimdiye kadarki en iyisi durur, sonuç hiçbir zaman kötüleşmez. "Süre" kutusuna yazdığınız süre boyunca dener, isterseniz "Sonlandır"la istediğiniz an bitirirsiniz.
+
+**Küçük parçalar boşlukları doldurur.** Büyük parçaların arasında ve deliklerinde kalan yerlere küçük parçalar yerleşir. Bir deliğe parça girmesini istemiyorsanız o parçada "deliğine parça konmaz"ı işaretlersiniz.
+
+**Aynı parçalar derli toplu dizilir.** Çok adetli parçalar sıra sıra, blok halinde, petek düzeninde ya da birbirine geçen çiftler olarak dizilir. Parçaları döndürerek en sıkı duruşu arar (açı varsayılan olarak serbest). Plakaya bakınca ne nerede olduğu anlaşılır.
+
+**Ortak kesim.** Seçtiğiniz parçalar kenar paylaşır, ortak kesim verirsiniz, motor buna göre dizer.
+
+**Elle koyduğunuza dokunmaz.** Elle yerleştirdiğiniz parçalar yerinde kalır, motor kalanı çevresine dizer.
+
+**Çakışmayı kabul etmez.** Motor bitirmeden dizilimi ayrıca denetler. Çakışma ya da payı bozan bir sonuç size sunulmaz.
+
+**Az sac harcamaya bakar.** Çok plakalı işlerde son sacı boşaltmaya çalışır. Birden fazla sac boyu varsa en az harcayanı seçer (aşağıda).
 
 ## Nasıl kullanılıyor
 
 LXD, DFT ya da DXF parça dosyalarını sol taraftaki alana sürükleyip bırakıyorsunuz. Her parçanın adedini, payını ve ortak kesim ayarını kartından, malzemesini ve kalınlığını sağ paneldeki özelliklerden değiştirirsiniz. Üst şeritte plaka ölçüsü, parça payı, sac kenarı ve motorun ne kadar çalışacağı var.
 
-"Otomatik yerleştir"e basınca motor ekrandaki plakayı dizer, bitince sonucu alırsınız. Dizilimi beğenmezseniz parçayı sürükler, döndürür, kopyalar, ortak kesim verir, cetvelle ölçersiniz. Ctrl+Z çalışır.
+"Otomatik yerleştir"e basınca motor ekrandaki plakayı dizer, bitince sonucu alırsınız. Dizilimi beğenmezseniz parçayı sürükler, döndürür, kopyalar, ortak kesim verir, cetvelle ölçersiniz. Ctrl+Z çalışır. Dalış noktaları kendiliğinden seçilir, isterseniz çizgiye tıklayıp elle taşırsınız.
 
 İş bitince "Çıktı üret": her dizilim için bir LXD ve bir DOC dosyası, isterseniz DXF de yazılır. DOC'ta plakanın resmi, verimi ve kesim süresi tahmini olur. Aynı dizilimin kopyaları (örneğin 5 adet aynı sac) tek dosya takımı olarak çıkar, sac sayısı DOC'ta yazar.
 
