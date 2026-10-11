@@ -1,99 +1,126 @@
-# Nestra
+<p align="center"><img src="ekran/logo.svg" alt="Nestra nesting software logo" width="420"></p>
+<p align="center"><a href="README.md"><img src="ekran/flag-en.svg" height="18" alt=""> <b>English</b></a> &nbsp;·&nbsp; <a href="README.tr.md"><img src="ekran/flag-tr.svg" height="18" alt=""> Türkçe</a></p>
 
-Lazer ve plazma kesimde parçaları sac plakaya dizen bir Windows programı. İnternet istemez, kurduğunuz bilgisayarda kendi başına çalışır.
+# Nestra: nesting software for laser, plasma and CNC sheet cutting
 
-Asıl işi dizmek: parçaları plakaya en az sac harcayacak şekilde yerleştirir. Kesim atölyelerinin günlük işi için, genel kullanıma göre yazdık. Parçaları atıyorsunuz, plakayı seçiyorsunuz, dizilimi ekranda görüyorsunuz, istediğiniz yeri elle düzeltip çıktıyı kesim programınıza veriyorsunuz.
+Nestra is a Windows nesting program for sheet metal. It packs your parts onto the sheet so that as little material as possible ends up as scrap, and it writes the cutting files for your machine. It runs offline on the PC you install it on: no account, no cloud, no internet needed to work.
 
-![Nestra ana ekran: 3000 x 1500 plakaya dizilmiş 398 parça](ekran/01-ana-ekran.png)
+It was built inside a working laser cutting shop and tuned on real production jobs, from a handful of large parts up to plates with thousands of small ones.
 
-*Örnek bir iş: 3000 x 1500 plaka, dokuz türden 398 parça. Motor 40 saniye çalıştı, hepsi tek plakaya sığdı, plaka verimi %80,6. Küçük parçalar büyüklerin arasındaki boşluklara ve deliklerine yerleşti.*
+[**Download the latest version**](https://github.com/webalet/nestra-surumler/releases/latest) · Windows 10 / 11, 64-bit · 14-day free trial
 
-## Dizilim motoru
+![Nestra nesting software: 580 parts packed on one 3000 x 1500 sheet at 80.5% utilization](ekran/01-nesting.png)
 
-Programın en çok emek verdiğimiz kısmı yerleşim motoru. Atölyedeki gerçek işlerle, binlerce parçalı plakalara kadar denedik ve ayarladık.
+*Sample job: nine part types, 606 parts, 3000 x 1500 sheets. In 60 seconds the engine packed 580 parts onto the first sheet at 80.5% utilization; the rest went to a second sheet. Small parts filled the gaps between large ones and the holes inside them.*
 
-**Parçalar plakaya eklenir, belirli aralıklarla sıkıştırılır.** Motor plakaya uygun parçaları yerleştirir, sonra aralıklarla bütün dizilimi sıkıştırıp parçaları birbirine yaklaştırır. Kullanılan sac kısalır, kalan sac büyür.
+## Who it is for
 
-**En verimli hali binlerce deneme ile aranır.** Motor bilgisayarın çekirdeklerine dağılıp çok sayıda farklı dizilimi birlikte dener. Ekranda hep şimdiye kadarki en iyisi durur, sonuç hiçbir zaman kötüleşmez. "Süre" kutusuna yazdığınız süre boyunca dener, isterseniz "Sonlandır"la istediğiniz an bitirirsiniz.
+- Laser, plasma and waterjet cutting shops that nest sheet metal every day
+- CAD / CAM operators who prepare cutting programs and want less scrap per job
+- Manufacturers who cut their own parts and need a simple, offline nesting tool
 
-**Küçük parçalar boşlukları doldurur.** Büyük parçaların arasında ve deliklerinde kalan yerlere küçük parçalar yerleşir. Bir deliğe parça girmesini istemiyorsanız o parçada "deliğine parça konmaz"ı işaretlersiniz.
+## The nesting engine
 
-**Aynı parçalar derli toplu dizilir.** Çok adetli parçalar sıra sıra, blok halinde, petek düzeninde ya da birbirine geçen çiftler olarak dizilir. Parçaları döndürerek en sıkı duruşu arar (açı varsayılan olarak serbest). Plakaya bakınca ne nerede olduğu anlaşılır.
+This is the part we put the most work into.
 
-**Ortak kesim.** Seçtiğiniz parçalar kenar paylaşır, ortak kesim verirsiniz, motor buna göre dizer.
+**True-shape nesting.** Parts are nested by their real outline, not by a bounding rectangle. Parts are rotated freely to find the tightest fit.
 
-**Elle koyduğunuza dokunmaz.** Elle yerleştirdiğiniz parçalar yerinde kalır, motor kalanı çevresine dizer.
+**Thousands of trials, the best one stays.** The engine spreads over all CPU cores and tries a large number of different layouts at the same time. The screen always shows the best layout so far, so the result never gets worse. You set how long it runs; press Stop at any moment and you keep what is on the screen.
 
-**Çakışmayı kabul etmez.** Motor bitirmeden dizilimi ayrıca denetler. Çakışma ya da payı bozan bir sonuç size sunulmaz.
+**Compaction.** As parts are added, the whole layout is pushed together again and again. The used length of the sheet gets shorter and the leftover piece gets bigger.
 
-**Az sac harcamaya bakar.** Çok plakalı işlerde son sacı boşaltmaya çalışır. Birden fazla sac boyu varsa en az harcayanı seçer (aşağıda).
+**Small parts fill the holes.** Gaps between large parts and the holes inside them are filled with small parts (part-in-part nesting). If a hole must stay empty, you mark it on that part.
 
-## Nasıl kullanılıyor
+**Tidy rows for repeated parts.** Parts with large quantities are laid out in rows, blocks, honeycomb patterns or interlocking pairs, so the operator can see at a glance what is where.
 
-LXD, DFT ya da DXF parça dosyalarını sol taraftaki alana sürükleyip bırakıyorsunuz. Her parçanın adedini, payını ve ortak kesim ayarını kartından, malzemesini ve kalınlığını sağ paneldeki özelliklerden değiştirirsiniz. Üst şeritte plaka ölçüsü, parça payı, sac kenarı ve motorun ne kadar çalışacağı var.
+**Common-line cutting.** Parts you choose can share an edge and be cut with a single line.
 
-"Otomatik yerleştir"e basınca motor ekrandaki plakayı dizer, bitince sonucu alırsınız. Dizilimi beğenmezseniz parçayı sürükler, döndürür, kopyalar, ortak kesim verir, cetvelle ölçersiniz. Ctrl+Z çalışır. Dalış noktaları kendiliğinden seçilir, isterseniz çizgiye tıklayıp elle taşırsınız.
+**Your manual work is kept.** Parts you place by hand stay where they are; the engine nests the rest around them. "Fill this sheet" only fills the empty space of the sheet on screen.
 
-İş bitince "Çıktı üret": her dizilim için bir LXD ve bir DOC dosyası, isterseniz DXF de yazılır. DOC'ta plakanın resmi, verimi ve kesim süresi tahmini olur. Aynı dizilimin kopyaları (örneğin 5 adet aynı sac) tek dosya takımı olarak çıkar, sac sayısı DOC'ta yazar.
+**No overlaps.** Every result is checked before it is shown. A layout with overlapping parts or a broken gap is never offered.
 
-![Çıktı üret penceresi](ekran/03-cikti.png)
+**Fewer sheets.** On multi-sheet jobs the engine tries to empty the last sheet, so the job needs one sheet less wherever possible.
 
-## Sac boyunu siz seçersiniz, program en az harcayanı bulur
+## Choose the sheet size with the least scrap
 
-Her plakanın ölçüsü ayrı olabilir. Aynı işte biri 3000 x 1500, öbürü 2500 x 1250 olabilir, her biri kendi dosyalarıyla çıkar.
+![Sheet size selection: three sizes compared, the one with the least scrap is suggested](ekran/07-sheet-size.png)
 
-"Kalanı doldur" dediğinizde hangi sac boylarını kullanabileceğinizi işaretlersiniz. Program işaretli boyları sırayla dener, en az sac harcayanı seçer. İsterseniz sonucu almadan önce karşılaştırmaya bakarsınız. Ekranda zaten dolu bir plaka varsa ona dokunmaz, kalanı yenisine dizer.
+Tick the sheet sizes you have in stock and press Auto nest. Nestra tries each size, compacts the winner and then moves every sheet to the smallest size it fits on. The table shows all sizes side by side and suggests the one that leaves the least scrap. The empty end of the last sheet is not counted as scrap: it is cut off at the remnant line and goes back to stock.
 
-![Kullanılacak saclar penceresi](ekran/02-sac-secimi.png)
+Every sheet in a job can have its own size, and each one gets its own output files.
 
-## Başka neler var
+## Kit nesting
 
-- İş sekmeleri: Aynı anda birden fazla iş açık kalır, motor sırayla çalışır.
-- `.nestra` iş dosyası: İşi kaydedip sonra aynen açarsınız. Kaydetmeden kapatırsanız program dakikada bir kurtarma kopyası alır, yeniden açınca sorar.
-- Sac ve malzeme kütüphanesi: Sac ölçülerinizi ve malzeme yoğunluklarınızı bir kez girersiniz.
-- Çıktıyı doğrudan kesim makinesinin okuduğu klasöre yazabilirsiniz (ayarlardan bir kez seçilir).
-- Bilgisayarın ne kadarını kullanacağını ayarlayabilirsiniz (varsayılan işlemcinin %75'i).
-- Bir şey ters giderse "Destek paketi oluştur": işi, günlükleri ve PC bilgisini bir zip yapar. Zip'in içine ne gireceğini önce siz görürsünüz, hiçbir yere kendiliğinden gönderilmez.
+![Kit nesting: complete kits of four different parts on one sheet](ekran/06-kits.png)
 
-## Alıştığınız programlardan ne farkı var
+When parts are cut as sets (for example 1 cover + 2 brackets + 2 square plates + 4 tabs), define a kit and say how many you need. Nestra nests only complete kits: no half sets, no extra parts left over. When a sheet is full, the same sheet is repeated for the remaining kits.
 
-Parça dosyalarını, çıktı biçimlerini ve elle düzeltme araçlarını kesim atölyelerinde alışılan şekilde bıraktık. Farklı tuttuğumuz yerler şunlar:
+## Remnants and leftover sheets
 
-- Hesap yok, çalışmak için internet gerekmez. Lisans anahtarı bilgisayara bağlıdır ve internetsiz bilgisayarda da etkinleştirilir: programdaki makine kodunu bize yollarsınız, size bir anahtar veririz.
-- Program iş dosyalarınızı, parçalarınızı ya da PC bilgilerinizi hiçbir yere göndermez. İnternetle yalnızca yeni sürüm var mı diye bakar (aşağıda).
-- Tek kurulum dosyası, yaklaşık 100 MB. Kullanıcı hesabınıza kurulur.
-- Yerleşim motorunu atölyedeki gerçek işlerle ayarladık.
-- Plaka başına ayrı ölçü ve en az sac harcayan boyu seçme işi programın içinde, ek modül değil.
+- **Remnant line:** a cut line is added after the last part so the unused end of the sheet comes off as a clean remnant. It can be moved, deleted or turned into a stepped line that follows the parts.
+- **Trim to remnant:** shrink the sheet to the used length with one click, or wrap it around the parts.
+- **Leftover sheets as plates:** with "Add remnant sheet", load an irregular leftover sheet from a DXF or DFT file and nest new parts onto it.
+- **Drawing on the sheet:** add your own cut, marking or keep-out lines directly on the sheet.
 
-Bunlar kendi tercihlerimiz, hepsini herkes aynı şekilde sevmeyebilir. Önce deneyin.
+## Cutting order and simulation
 
-## Kurulum
+![Cutting tab: cutting order across the sheet](ekran/03-cutting.png)
 
-Son sürümü [Releases](https://github.com/webalet/nestra-surumler/releases/latest) sayfasından indirin (`Nestra-Kurulum-....exe`). Windows 10 ya da 11, 64 bit gerekir.
+Nestra sets the cutting order for you: the sheet is cut in strips from the start corner, holes are cut before the outer contour of each part. Lead-ins are placed automatically on a safe corner. Click any contour to move a lead-in or change its length; one change applies to every copy of that part on the sheet.
 
-Kurulum dosyasını henüz dijital imzayla imzalamadık. Windows ilk çalıştırmada "bilinmeyen yayıncı" uyarısı gösterebilir: "Ek bilgi", sonra "Yine de çalıştır". Dosya ilişkilendirme sorusu çıkacak: LXD, DFT ve DXF dosyalarının çift tıklayınca Nestra'da açılmasını istiyorsanız kutuyu işaretleyin. İşaretlemezseniz bu dosyalar şimdi hangi programda açılıyorsa orada açılmaya devam eder.
+![Cutting simulation](ekran/04-simulation.png)
 
-İlk açılışta iki seçenek çıkar:
+The simulation plays the cut on screen so you can check the order before the sheet goes on the machine.
 
-![İlk açılış ekranı](ekran/04-ilk-acilis.png)
+## Parts in, cutting files out
 
-## Deneme ve lisans
+![Parts window: quantity, thickness and material for each part](ekran/02-parts.png)
 
-"14 gün dene"ye basarsanız program anahtarsız 14 gün tam çalışır. Süre bitince kilitlenir ve devam etmek için anahtar ister. Açık bıraktığınız bir pencere de süre dolunca en geç birkaç dakika içinde kilitlenir, yaptığınız iş kaybolmaz, anahtarı girince kaldığınız yerden devam edersiniz.
+**Input:** LXD, DFT and DXF part files. Drop them into the Parts window; quantity and thickness are read from the file name when they are written there, and you fill in the rest.
 
-Anahtar almak için: durum çubuğundaki "Deneme: ..." yazısına tıklayın, makine kodunu kopyalayın ve firma adınızla birlikte darkhesaplar@gmail.com adresine yollayın. Makine kodu gizli bir bilgi değildir, anahtar yalnızca o bilgisayarda çalışır. Anahtar süresiz ya da bitiş tarihli verilebilir.
+![Generate output window](ekran/05-output.png)
 
-## Güncelleme
+**Output:** for every layout an LXD file and a DOC sheet report, and a DXF if you want one. The report shows the sheet picture, material, utilization and an estimated cutting time. Identical sheets are written once with their count. Output can go straight to the folder your cutting machine reads from.
 
-İnternet varsa program açılışta bu sayfadaki son sürüme bakar. Yeni sürüm varsa durum çubuğunda "Güncelle" düğmesi çıkar. Basınca indirir, bütünlüğünü ve imzamızı doğrular, programı kapatıp kurar, yeniden açar. Kaydedilmemiş işiniz varsa önce kaydetmenizi ister. İnternetsiz bilgisayarlarda hiçbir şey olmaz, kurulum dosyasını USB ile götürüp eskisinin üstüne kurmanız yeter, ayarlarınız ve işleriniz kalır.
+## Also included
 
-## Bilinen sınırlar
+- English and Turkish interface. It follows the Windows language and can be changed in Settings.
+- Several jobs open at once in tabs.
+- `.nestra` job files, plus automatic recovery copies if the program is closed without saving.
+- All fixed settings in one Settings window, with export / import to move them to another PC.
+- You choose how much of the CPU the engine may use.
+- "Create support package" collects the job, logs and PC info into a zip. You see what goes in, and it is never sent anywhere by itself.
 
-- DXF dosyalarında çizgi, yay, daire ve LWPOLYLINE okunur. SPLINE, ELLIPSE, blok (INSERT) ve eski tip POLYLINE şimdilik okunmaz, bunlar sessizce atlanır. DXF'inizde bunlar varsa parça eksik gelebilir; yerleştirmeden önce soldaki parça kartındaki şekle bakın. Başka bir programdan gelen DXF'te ilk takılacağınız yer büyük ihtimalle burası.
-- Kesim yazılımınızın bizim LXD ve DOC dosyalarını açtığını ilk işte kendiniz kontrol edin. Kendi dosyalarınızla denemeden canlı işe vermeyin.
-- Windows 7 ve 8 desteklenmez.
-- Programın içinde "Hakkında" penceresinde sürüm, motor sürümü ve lisans durumu görünür; destek isterken bunları yazın.
+## Download and install
 
-## Soru ve hata bildirimi
+1. Download `Nestra-Kurulum-<version>.exe` from the [Releases](https://github.com/webalet/nestra-surumler/releases/latest) page (about 100 MB).
+2. Run it. The program installs into your user account.
 
-Program şu an geliştirme aşamasında. Soru, hata ve lisans isteği için darkhesaplar@gmail.com adresine yazın. Hata bildirirken mümkünse Yardım menüsündeki "Destek paketi oluştur" ile aldığınız zip'i ekleyin.
+**The installer is not digitally signed yet.** Windows and some browsers warn about unsigned programs from new publishers. The file is safe; this is what you may see:
+
+- **While downloading:** the browser may say the file "isn't commonly downloaded" or "could harm your device". Open the download list, click the file's menu and choose **Keep** (the wording differs between Edge and Chrome).
+- **When you start the installer:** a blue window says "Windows protected your PC". Click **More info**, then **Run anyway**.
+- **Antivirus:** some antivirus programs block or quarantine unsigned files they have not seen before. If the installer disappears or will not start, restore it from quarantine or add an exception.
+- **Updates:** if an update gets stuck for the same reason, Nestra shows an error after a minute with a **Download manually** button; install the new version over the old one.
+
+During setup you are asked whether LXD, DFT and DXF files should open in Nestra on double-click. If you leave it unticked, they keep opening in the program they open in now.
+
+## Trial and license
+
+Press "Try for 14 days" on first start: the program works fully without a key for 14 days. When the trial ends it locks and asks for a key. A window left open locks within a few minutes; your work is not lost and you continue where you left off after entering the key.
+
+To get a key, click the "Trial: ..." text in the status bar, copy the machine code and send it with your company name to darkhesaplar@gmail.com. The machine code is not secret, and the key only works on that computer. The license works without internet: the key is entered by hand.
+
+## Updates
+
+When the PC is online, Nestra checks this page for a new version at start-up. If there is one, an "Update" button appears in the status bar. It downloads the update, checks its integrity and our signature, closes the program, installs and reopens it. If you have unsaved work, it asks you to save it first. On offline PCs nothing happens; copy the new installer on a USB stick and install it over the old one. Your settings and jobs stay.
+
+## Known limits
+
+- DXF: lines, arcs, circles and LWPOLYLINE are read. SPLINE, ELLIPSE, blocks (INSERT) and old-style POLYLINE are not read yet and are skipped, so a part may come in incomplete. Check the part shape in the part list before nesting.
+- Check on your first job that your cutting software opens our LXD and DOC files. Do not go to production before testing with your own files.
+- Windows 7 and 8 are not supported.
+
+## Questions and bug reports
+
+Write to darkhesaplar@gmail.com for questions, bug reports and license requests. When reporting a bug, please attach the zip from Help → "Create support package". The About window shows the program version, engine version and license state.

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="120" viewBox="0 0 420 120" role="img" aria-label="Nestra">
+  <rect width="420" height="120" rx="16" fill="#1c2027"/>
+  <g transform="translate(10 10)">
+    <rect x="8" y="8" width="84" height="84" fill="#2d333d"/>
+    <g fill="#f2a33a">
+      <rect x="16" y="16" width="36" height="30"/>
+      <rect x="57" y="16" width="27" height="24"/>
+      <polygon points="16,52 42,52 42,64 30,64 30,84 16,84"/>
+      <circle cx="62" cy="64" r="17"/>
+      <rect x="82" y="46" width="4" height="38"/>
+    </g>
+  </g>
+  <text x="128" y="70" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="50" font-weight="600" fill="#ffffff">Nestra</text>
+  <text x="130" y="96" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#9aa4b2">Nesting software · Nesting programı</text>
+</svg>
