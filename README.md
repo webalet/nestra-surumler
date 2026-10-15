@@ -7,7 +7,9 @@ Nestra is a Windows nesting program for sheet metal. It packs your parts onto th
 
 It was built inside a working laser cutting shop and tuned on real production jobs, from a handful of large parts up to plates with thousands of small ones.
 
-[**Download the latest version**](https://github.com/webalet/nestra-surumler/releases/latest) · Windows 10 / 11, 64-bit · 14-day free trial
+[**Download the latest version**](https://nestracam.com/en/download/) · Windows 10 / 11, 64-bit · 14-day free trial
+
+New versions, help and licenses: **[nestracam.com](https://nestracam.com/en/)**. This page is no longer updated.
 
 ![Nestra nesting software: 580 parts packed on one 3000 x 1500 sheet at 80.5% utilization](ekran/01-nesting.png)
 
@@ -93,7 +95,7 @@ The simulation plays the cut on screen so you can check the order before the she
 
 ## Download and install
 
-1. Download `Nestra-Kurulum-<version>.exe` from the [Releases](https://github.com/webalet/nestra-surumler/releases/latest) page (about 100 MB).
+1. Download `Nestra-Kurulum-<version>.exe` from [nestracam.com/en/download](https://nestracam.com/en/download/) (about 100 MB).
 2. Run it. The program installs into your user account.
 
 **The installer is not digitally signed yet.** Windows and some browsers warn about unsigned programs from new publishers. The file is safe; this is what you may see:
@@ -113,7 +115,7 @@ To get a key, click the "Trial: ..." text in the status bar, copy the machine co
 
 ## Updates
 
-When the PC is online, Nestra checks this page for a new version at start-up. If there is one, an "Update" button appears in the status bar. It downloads the update, checks its integrity and our signature, closes the program, installs and reopens it. If you have unsaved work, it asks you to save it first. On offline PCs nothing happens; copy the new installer on a USB stick and install it over the old one. Your settings and jobs stay.
+When the PC is online, Nestra checks nestracam.com for a new version at start-up. If there is one, an "Update" button appears in the status bar. It downloads the update, checks its integrity and our signature, closes the program, installs and reopens it. If you have unsaved work, it asks you to save it first. On offline PCs nothing happens; copy the new installer on a USB stick and install it over the old one. Your settings and jobs stay.
 
 ## Known limits
 

@@ -9,7 +9,9 @@ Nestra, sac kesim için Windows'ta çalışan bir nesting programıdır. Parçal
 
 Program çalışan bir lazer kesim atölyesinin içinde yazıldı ve gerçek üretim işleriyle ayarlandı: birkaç büyük parçadan, binlerce küçük parçalı plakalara kadar.
 
-[**Son sürümü indir**](https://github.com/webalet/nestra-surumler/releases/latest) · Windows 10 / 11, 64 bit · 14 gün ücretsiz deneme
+[**Son sürümü indir**](https://nestracam.com/indir/) · Windows 10 / 11, 64 bit · 14 gün ücretsiz deneme
+
+Yeni sürümler, yardım ve lisans: **[nestracam.com](https://nestracam.com/)**. Bu sayfa artık güncellenmiyor.
 
 ![Nestra nesting programı: 3000 x 1500 saca %80,5 verimle dizilmiş 580 parça](ekran/01-nesting.png)
 
@@ -95,7 +97,7 @@ Simülasyon kesimi ekranda oynatır; sac makineye girmeden sırayı kontrol eder
 
 ## İndirme ve kurulum
 
-1. [Releases](https://github.com/webalet/nestra-surumler/releases/latest) sayfasından `Nestra-Kurulum-<sürüm>.exe` dosyasını indirin (yaklaşık 100 MB).
+1. [nestracam.com/indir](https://nestracam.com/indir/) adresinden `Nestra-Kurulum-<sürüm>.exe` dosyasını indirin (yaklaşık 100 MB).
 2. Çalıştırın. Program kullanıcı hesabınıza kurulur.
 
 **Kurulum dosyası henüz dijital imzalı değil.** Windows ve bazı tarayıcılar yeni yayıncıların imzasız programları için uyarı verir. Dosya güvenlidir; karşılaşabileceğiniz uyarılar:
@@ -115,7 +117,7 @@ Anahtar almak için durum çubuğundaki "Deneme: ..." yazısına tıklayın, mak
 
 ## Güncelleme
 
-İnternet varsa Nestra açılışta bu sayfadaki son sürüme bakar. Yeni sürüm varsa durum çubuğunda "Güncelle" düğmesi çıkar. Basınca indirir, bütünlüğünü ve imzamızı doğrular, programı kapatıp kurar ve yeniden açar. Kaydedilmemiş işiniz varsa önce kaydetmenizi ister. İnternetsiz bilgisayarlarda hiçbir şey olmaz; kurulum dosyasını USB ile götürüp eskisinin üstüne kurmanız yeter, ayarlarınız ve işleriniz kalır.
+İnternet varsa Nestra açılışta nestracam.com'daki son sürüme bakar. Yeni sürüm varsa durum çubuğunda "Güncelle" düğmesi çıkar. Basınca indirir, bütünlüğünü ve imzamızı doğrular, programı kapatıp kurar ve yeniden açar. Kaydedilmemiş işiniz varsa önce kaydetmenizi ister. İnternetsiz bilgisayarlarda hiçbir şey olmaz; kurulum dosyasını USB ile götürüp eskisinin üstüne kurmanız yeter, ayarlarınız ve işleriniz kalır.
 
 ## Bilinen sınırlar
 
