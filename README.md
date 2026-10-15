@@ -111,7 +111,7 @@ During setup you are asked whether LXD, DFT and DXF files should open in Nestra 
 
 Press "Try for 14 days" on first start: the program works fully without a key for 14 days. When the trial ends it locks and asks for a key. A window left open locks within a few minutes; your work is not lost and you continue where you left off after entering the key.
 
-To get a key, click the "Trial: ..." text in the status bar, copy the machine code and send it with your company name to darkhesaplar@gmail.com. The machine code is not secret, and the key only works on that computer. The license works without internet: the key is entered by hand.
+To buy a license, write to sales@nestracam.com or message us on WhatsApp ([nestracam.com/en/contact](https://nestracam.com/en/contact/)). Your license codes (`NSTR-XXXX-XXXX-XXXX`) arrive by email and are also listed on the Account page at nestracam.com. To activate, click the "Trial: ..." text in the status bar, paste the code into the license box and press **Activate**. Each code works on one computer. On a computer without internet, scan the QR code in the license window with your phone. Once activated, the license works without internet.
 
 ## Updates
 
@@ -125,4 +125,4 @@ When the PC is online, Nestra checks nestracam.com for a new version at start-up
 
 ## Questions and bug reports
 
-Write to darkhesaplar@gmail.com for questions, bug reports and license requests. When reporting a bug, please attach the zip from Help → "Create support package". The About window shows the program version, engine version and license state.
+Write to support@nestracam.com for questions and bug reports, and to sales@nestracam.com for licenses. When reporting a bug, please attach the zip from Help → "Create support package". The About window shows the program version, engine version and license state.

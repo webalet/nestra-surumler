@@ -113,7 +113,7 @@ Kurulumda LXD, DFT ve DXF dosyalarının çift tıklayınca Nestra'da açılmas�
 
 İlk açılışta "14 gün dene"ye basarsanız program anahtarsız 14 gün tam çalışır. Süre bitince kilitlenir ve anahtar ister. Açık bıraktığınız pencere de birkaç dakika içinde kilitlenir; işiniz kaybolmaz, anahtarı girince kaldığınız yerden devam edersiniz.
 
-Anahtar almak için durum çubuğundaki "Deneme: ..." yazısına tıklayın, makine kodunu kopyalayın ve firma adınızla birlikte darkhesaplar@gmail.com adresine yollayın. Makine kodu gizli bir bilgi değildir, anahtar yalnız o bilgisayarda çalışır. Lisans internetsiz çalışır, anahtar elle girilir.
+Lisans almak için sales@nestracam.com adresine yazın ya da WhatsApp'tan ulaşın ([nestracam.com/iletisim](https://nestracam.com/iletisim/)). Lisans kodlarınız (`NSTR-XXXX-XXXX-XXXX`) e-postayla gelir, nestracam.com'daki Hesabım sayfasında da görünür. Etkinleştirmek için durum çubuğundaki "Deneme: ..." yazısına tıklayın, kodu lisans kutusuna yapıştırın ve **Etkinleştir**'e basın. Her kod bir bilgisayarda çalışır. İnternetsiz bilgisayarda lisans penceresindeki karekodu telefonunuzla okutun. Etkinleştikten sonra lisans internetsiz çalışır.
 
 ## Güncelleme
 
@@ -127,4 +127,4 @@ Anahtar almak için durum çubuğundaki "Deneme: ..." yazısına tıklayın, mak
 
 ## Soru ve hata bildirimi
 
-Soru, hata ve lisans isteği için darkhesaplar@gmail.com adresine yazın. Hata bildirirken mümkünse Yardım → "Destek paketi oluştur" ile aldığınız zip'i ekleyin. Hakkında penceresinde program sürümü, motor sürümü ve lisans durumu görünür.
+Soru ve hata bildirimi için support@nestracam.com, lisans için sales@nestracam.com adresine yazın. Hata bildirirken mümkünse Yardım → "Destek paketi oluştur" ile aldığınız zip'i ekleyin. Hakkında penceresinde program sürümü, motor sürümü ve lisans durumu görünür.
